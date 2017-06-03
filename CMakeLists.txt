@@ -59,6 +59,6 @@ target_link_libraries(AntTweakBar  ${GLUT_LIBRARY}
                                    ${EXTRA_LIBS})
 
 
-install(TARGETS AntTweakBar LIBRARY DESTINATION lib)
+#install(TARGETS AntTweakBar LIBRARY DESTINATION .)
 
 #add_subdirectory(examples)
