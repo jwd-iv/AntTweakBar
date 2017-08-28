@@ -12,12 +12,12 @@ set(ATB_INCLUDE_DIR include)
 
 # Standard Packages
 find_package(OpenGL REQUIRED)
-find_package(GLUT)
+# find_package(GLUT)
 find_library(GLFW_LIBRARY glfw)
 
 include_directories( ${ATB_INCLUDE_DIR} 
-                     ${OPENGL_INCLUDE_DIR} 
-                     ${GLUT_INCLUDE_DIR})
+                     ${OPENGL_INCLUDE_DIR})
+#                    ${GLUT_INCLUDE_DIR})
 
 if(APPLE)
 
