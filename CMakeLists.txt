@@ -36,27 +36,40 @@ if(APPLE)
 endif(APPLE)
 
 set( SOURCES src/LoadOGL.cpp
-             src/TwColors.cpp
-             src/TwMgr.cpp
-             src/TwPrecomp.cpp
-             src/TwEventSFML.cpp
-             src/TwOpenGL.cpp
              src/TwBar.cpp
+             src/TwColors.cpp
+             src/TwDirect3D9.cpp
+             src/TwDirect3D10.cpp
+             #src/TwDirect3D11.cpp
+             src/TwEventSFML.cpp
              src/TwFonts.cpp
-             src/TwEventGLUT.c
+             src/TwMgr.cpp
+             src/TwOpenGL.cpp
+             #src/TwOpenGLCore.cpp
+             src/TwPrecomp.cpp
              src/TwEventGLFW.c
-             #src/TwEventSDL.c
-             #src/TwEventSDL12.c 
-             #src/TwEventSDL13.c
+             src/TwEventGLUT.c
+             src/TwEventSDL.c
+             src/TwEventSDL12.c 
+             src/TwEventSDL13.c
+             src/TwEventWin.c
              )
 
-
-add_library(AntTweakBar SHARED ${SOURCES})
-
-message("Extra libs: ${EXTRA_LIBS}")
-target_link_libraries(AntTweakBar  ${GLUT_LIBRARY} 
-                                   ${OPENGL_LIBRARY} 
-                                   ${EXTRA_LIBS})
+if(TW_STATIC)
+  add_library(AntTweakBarStatic ${SOURCES})
+  message("Extra libs: ${EXTRA_LIBS}")
+  target_link_libraries(AntTweakBarStatic
+    ${GLUT_LIBRARY} 
+    ${OPENGL_LIBRARY} 
+    ${EXTRA_LIBS}
+  )
+else()
+  add_library(AntTweakBar SHARED ${SOURCES})
+  message("Extra libs: ${EXTRA_LIBS}")
+  target_link_libraries(AntTweakBar  ${GLUT_LIBRARY} 
+                                     ${OPENGL_LIBRARY} 
+                                     ${EXTRA_LIBS})
+endif()
 
 
 #install(TARGETS AntTweakBar LIBRARY DESTINATION .)

@@ -1721,7 +1721,7 @@ static int TwCreateGraph(ETwGraphAPI _GraphAPI)
         #endif // ANT_WINDOWS
         break;
     case TW_DIRECT3D11:
-        #ifdef ANT_WINDOWS
+        #if 0//def ANT_WINDOWS
             if( g_TwMgr->m_Device!=NULL )
                 g_TwMgr->m_Graph = new CTwGraphDirect3D11;
             else
