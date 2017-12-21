@@ -28,7 +28,7 @@ int TW_CALL TwEventSDL(const void *sdlEvent, unsigned char majorVersion, unsigne
     if (majorVersion < 1 || (majorVersion == 1 && minorVersion < 2))
     {
         static const char *g_ErrBadSDLVersion = "Unsupported SDL version";
-        TwSetLastError(g_ErrBadSDLVersion);
+        //TwSetLastError(g_ErrBadSDLVersion);
         return 0;
     }
     else if (majorVersion == 1 && minorVersion == 2)

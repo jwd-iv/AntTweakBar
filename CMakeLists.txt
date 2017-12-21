@@ -55,21 +55,13 @@ set( SOURCES src/LoadOGL.cpp
              src/TwEventWin.c
              )
 
-if(TW_STATIC)
-  add_library(AntTweakBarStatic ${SOURCES})
-  message("Extra libs: ${EXTRA_LIBS}")
-  target_link_libraries(AntTweakBarStatic
-    ${GLUT_LIBRARY} 
-    ${OPENGL_LIBRARY} 
-    ${EXTRA_LIBS}
-  )
-else()
-  add_library(AntTweakBar SHARED ${SOURCES})
-  message("Extra libs: ${EXTRA_LIBS}")
-  target_link_libraries(AntTweakBar  ${GLUT_LIBRARY} 
-                                     ${OPENGL_LIBRARY} 
-                                     ${EXTRA_LIBS})
-endif()
+add_library(AntTweakBar ${SOURCES})
+message("Extra libs: ${EXTRA_LIBS}")
+target_link_libraries(AntTweakBar
+  ${GLUT_LIBRARY} 
+  ${OPENGL_LIBRARY} 
+  ${EXTRA_LIBS}
+)
 
 
 #install(TARGETS AntTweakBar LIBRARY DESTINATION .)
